@@ -6,7 +6,8 @@
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
-         stopOnFailure="false">
+         stopOnFailure="false"
+        executionOrder="default">
   <php>
     <ini name="error_reporting" value="-1" />
   </php>
@@ -21,7 +22,7 @@
   </coverage>
 
   <testsuites>
-    <testsuite name="Template">
+    <testsuite name="User-Settings">
       <directory>./tests</directory>
     </testsuite>
   </testsuites>

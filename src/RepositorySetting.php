@@ -16,8 +16,8 @@ use Yiisoft\Db\Exception\InvalidConfigException;
 final class RepositorySetting
 {
     private ConnectionInterface $db;
-    private ?Setting $settings;
-    private ?Activequery $querySettings = null;
+    private Setting $settings;
+    private Activequery $querySettings;
 
     /**
      * RepositorySetting constructor.
@@ -115,14 +115,13 @@ final class RepositorySetting
      */
     private function loadSettings(): ?ActiveRecordInterface
     {
+        /** @psalm-suppress PropertyTypeCoercion */
         return $this->settings = $this->querySettings->findOne(1);
     }
 
     private function createQuerySettings(): ActiveQueryInterface
     {
-        if ($this->querySettings === null) {
-            $this->querySettings = new ActiveQuery(Setting::class, $this->db);
-        }
+        $this->querySettings = new ActiveQuery(Setting::class, $this->db);
 
         return $this->querySettings;
     }
