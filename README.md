@@ -11,7 +11,7 @@
 [![codecov](https://codecov.io/gh/yii-extension/user-settings/branch/master/graph/badge.svg?token=xJG0oMimpA)](https://codecov.io/gh/yii-extension/user-settings)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https://badge-api.stryker-mutator.io/github.com/yii-extension/user-settings/master)](https://dashboard.stryker-mutator.io/reports/github.com/yii-extension/user-settings/master)
 [![static analysis](https://github.com/yii-extension/user-settings/workflows/static%20analysis/badge.svg)](https://github.com/yii-extension/user-settings/actions?query=workflow%3A%22static+analysis%22)
-
+[![type-coverage](https://shepherd.dev/github/yii-extension/user-settings/coverage.svg)](https://shepherd.dev/github/yii-extension/user-settings)
 
 ## Installation
 
