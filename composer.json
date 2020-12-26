@@ -42,13 +42,17 @@
             "dev-master": "1.0.x-dev"
         },
         "config-plugin": {
-            "params": "config/params.php",
-            "common": "tests/config/common.php",
-            "console": [
-                "$common",
-                "tests/config/console.php"
-            ],
-            "providers-console": "tests/config/providers-console.php"
+            "params": "config/params.php"
+        },
+        "config-plugin-alternatives": {
+            "tests": {
+                "common": "tests/config/common.php",
+                "console": [
+                    "$common",
+                    "tests/config/console.php"
+                ],
+                "providers-console": "tests/config/providers-console.php"
+            }
         }
     },
     "config": {
