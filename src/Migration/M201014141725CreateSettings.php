@@ -91,6 +91,6 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
 
     public function down(): void
     {
-        $this->dropTable('setting');
+        $this->dropTable('settings');
     }
 }
