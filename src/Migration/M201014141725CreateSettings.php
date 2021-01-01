@@ -21,7 +21,7 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
         }
 
         $this->createTable(
-            'settings',
+            '{{%settings}}',
             [
                 'id' => $this->primaryKey(),
                 'confirmation' => $this->boolean(),
@@ -44,10 +44,10 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
             $tableOptions
         );
 
-        $this->createIndex('id', 'settings', ['id'], true);
+        $this->createIndex('id', '{{%settings}}', ['id'], true);
 
         $this->batchInsert(
-            'settings',
+            '{{%settings}}',
             [
                 'confirmation',
                 'delete',
@@ -91,6 +91,6 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
 
     public function down(): void
     {
-        $this->dropTable('settings');
+        $this->dropTable('{{%settings}}');
     }
 }
