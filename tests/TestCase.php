@@ -17,6 +17,7 @@ use Yiisoft\Db\Sqlite\Connection;
 use Yiisoft\Di\Container;
 use Yiisoft\Factory\Definitions\Reference;
 use Yiisoft\Profiler\Profiler;
+use Yiisoft\Profiler\ProfilerInterface;
 use Yiisoft\Yii\Db\Migration\Command\CreateCommand;
 use Yiisoft\Yii\Db\Migration\Command\DownCommand;
 use Yiisoft\Yii\Db\Migration\Command\HistoryCommand;
@@ -68,12 +69,7 @@ class TestCase extends AbstractTestCase
 
             LoggerInterface::class => NullLogger::class,
 
-            Profiler::class => [
-                '__class' => Profiler::class,
-                '__construct()' => [
-                    Reference::to(LoggerInterface::class),
-                ],
-            ],
+            ProfilerInterface::class => Profiler::class,
 
             ConnectionInterface::class => [
                 '__class' => Connection::class,
