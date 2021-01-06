@@ -23,7 +23,7 @@ final class RepositorySettingTest extends TestCase
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'System Notification - Yii Demo User Module AR.',
+            'System Notification - Yii Demo User Module AR',
             $repositorySetting->getMessageheader()
         );
     }
@@ -33,7 +33,7 @@ final class RepositorySettingTest extends TestCase
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'Confirm account.',
+            'Confirm account',
             $repositorySetting->getSubjectConfirm()
         );
     }
@@ -43,7 +43,7 @@ final class RepositorySettingTest extends TestCase
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'Your password has been changed.',
+            'Your password has been changed',
             $repositorySetting->getSubjectPassword()
         );
     }
@@ -53,7 +53,7 @@ final class RepositorySettingTest extends TestCase
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'Complete password reset.',
+            'Complete password reset',
             $repositorySetting->getSubjectRecovery()
         );
     }
@@ -63,7 +63,7 @@ final class RepositorySettingTest extends TestCase
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'Welcome.',
+            'Welcome',
             $repositorySetting->getSubjectWelcome()
         );
     }
