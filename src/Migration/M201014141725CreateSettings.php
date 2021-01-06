@@ -72,7 +72,7 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
                     false,
                     'support@example.com',
                     false,
-                    'System Notification - Yii Demo User Module AR.',
+                    'System Notification - Yii Demo User Module AR',
                     true,
                     true,
                     'Confirm account.',
