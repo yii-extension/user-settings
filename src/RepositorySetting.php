@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Yii\Extension\User\Settings;
 
-use Yiisoft\ActiveRecord\ActiveQuery;
 use Yiisoft\ActiveRecord\ActiveQueryInterface;
 use Yiisoft\ActiveRecord\ActiveRecordFactory;
 use Yiisoft\ActiveRecord\ActiveRecordInterface;
@@ -17,7 +16,7 @@ final class RepositorySetting
 {
     private ActiveRecordFactory $activeRecordFactory;
     private Setting $settings;
-    private Activequery $querySettings;
+    private ActiveQueryInterface $querySettings;
 
     /**
      * RepositorySetting constructor.
