@@ -4,10 +4,9 @@ declare(strict_types=1);
 
 namespace Yii\Extension\User\Settings;
 
-use Yiisoft\ActiveRecord\ActiveQuery;
 use Yiisoft\ActiveRecord\ActiveQueryInterface;
+use Yiisoft\ActiveRecord\ActiveRecordFactory;
 use Yiisoft\ActiveRecord\ActiveRecordInterface;
-use Yiisoft\Db\Connection\ConnectionInterface;
 use Yiisoft\Db\Exception\InvalidConfigException;
 
 /**
@@ -15,9 +14,9 @@ use Yiisoft\Db\Exception\InvalidConfigException;
  */
 final class RepositorySetting
 {
-    private ConnectionInterface $db;
+    private ActiveRecordFactory $activeRecordFactory;
     private Setting $settings;
-    private Activequery $querySettings;
+    private ActiveQueryInterface $querySettings;
 
     /**
      * RepositorySetting constructor.
@@ -26,9 +25,9 @@ final class RepositorySetting
      *
      * @throws InvalidConfigException
      */
-    public function __construct(ConnectionInterface $db)
+    public function __construct(ActiveRecordFactory $activeRecordFactory)
     {
-        $this->db = $db;
+        $this->activeRecordFactory = $activeRecordFactory;
         $this->createQuerySettings();
         $this->loadSettings();
     }
@@ -121,7 +120,7 @@ final class RepositorySetting
 
     private function createQuerySettings(): ActiveQueryInterface
     {
-        $this->querySettings = new ActiveQuery(Setting::class, $this->db);
+        $this->querySettings = $this->activeRecordFactory->createQueryTo(Setting::class);
 
         return $this->querySettings;
     }
