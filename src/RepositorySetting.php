@@ -15,6 +15,7 @@ use Yiisoft\Db\Exception\InvalidConfigException;
  */
 final class RepositorySetting
 {
+    private ActiveRecordFactory $activeRecordFactory;
     private Setting $settings;
     private Activequery $querySettings;
 
@@ -25,8 +26,9 @@ final class RepositorySetting
      *
      * @throws InvalidConfigException
      */
-    public function __construct()
+    public function __construct(ActiveRecordFactory $activeRecordFactory)
     {
+        $this->activeRecordFactory = $activeRecordFactory;
         $this->createQuerySettings();
         $this->loadSettings();
     }
@@ -117,9 +119,9 @@ final class RepositorySetting
         return $this->settings = $this->querySettings->findOne(1);
     }
 
-    private function createQuerySettings(ActiveRecordFactory $activeRecordFactory): ActiveQueryInterface
+    private function createQuerySettings(): ActiveQueryInterface
     {
-        $this->querySettings = $activeRecordFactory->createQueryTo(Setting::class);
+        $this->querySettings = $this->activeRecordFactory->createQueryTo(Setting::class);
 
         return $this->querySettings;
     }
