@@ -23,7 +23,7 @@ final class RepositorySettingTest extends TestCase
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'System Notification - Yii Demo User Module AR',
+            'System Notification',
             $repositorySetting->getMessageheader()
         );
     }
