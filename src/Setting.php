@@ -33,56 +33,56 @@ final class Setting extends ActiveRecord
 
     public function getEmailChangeStrategy(): int
     {
-        return $this->getAttribute('emailChangeStrategy');
+        return (int) $this->getAttribute('emailChangeStrategy');
     }
 
     public function getMessageHeader(): string
     {
-        return $this->getAttribute('messageHeader');
+        return (string) $this->getAttribute('messageHeader');
     }
 
     public function getTokenConfirmWithin(): int
     {
-        return $this->getAttribute('tokenConfirmWithin');
+        return (int) $this->getAttribute('tokenConfirmWithin');
     }
 
     public function getTokenRecoverWithin(): int
     {
-        return $this->getAttribute('tokenRecoverWithin');
+        return (int) $this->getAttribute('tokenRecoverWithin');
     }
 
     public function getUsernameCaseSensitive(): bool
     {
-        return $this->getAttribute('userNameCaseSensitive');
+        return (bool) $this->getAttribute('userNameCaseSensitive');
     }
 
     public function getUsernameRegExp(): string
     {
-        return $this->getAttribute('userNameRegExp');
+        return (string) $this->getAttribute('userNameRegExp');
     }
 
     public function isConfirmation(): bool
     {
-        return $this->getAttribute('confirmation');
+        return (bool) $this->getAttribute('confirmation');
     }
 
     public function isDelete(): bool
     {
-        return $this->getAttribute('delete');
+        return (bool) $this->getAttribute('delete');
     }
 
     public function isGeneratingPassword(): bool
     {
-        return $this->getAttribute('generatingPassword');
+        return (bool) $this->getAttribute('generatingPassword');
     }
 
     public function isPasswordRecovery(): bool
     {
-        return $this->getAttribute('passwordRecovery');
+        return (bool) $this->getAttribute('passwordRecovery');
     }
 
     public function isRegister(): bool
     {
-        return $this->getAttribute('register');
+        return (bool) $this->getAttribute('register');
     }
 }
