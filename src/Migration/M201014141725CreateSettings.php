@@ -17,7 +17,7 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
         $tableOptions = null;
 
         if ($this->db->getDriverName() === 'mysql') {
-            $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE=InnoDB';
+            $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_bin ENGINE=InnoDB';
         }
 
         $this->createTable(
