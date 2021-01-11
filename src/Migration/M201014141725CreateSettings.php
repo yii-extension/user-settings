@@ -26,20 +26,15 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
                 'id' => $this->primaryKey(),
                 'confirmation' => $this->boolean(),
                 'delete' => $this->boolean(),
-                'emailFrom' => $this->string(45),
                 'generatingPassword' => $this->boolean(),
                 'messageHeader' => $this->string(100),
                 'passwordRecovery' => $this->boolean(),
                 'register' => $this->boolean(),
-                'subjectConfirm' => $this->string(100),
-                'subjectPassword' => $this->string(100),
-                'subjectReconfirmation' => $this->string(100),
-                'subjectRecovery' => $this->string(100),
-                'subjectWelcome' => $this->string(100),
                 'tokenConfirmWithin' => $this->integer(),
                 'tokenRecoverWithin' => $this->integer(),
                 'userNameCaseSensitive' => $this->boolean(),
-                'userNameRegExp' => $this->string(25)
+                'userNameRegExp' => $this->string(25),
+                'emailChangeStrategy' => $this->integer(),
             ],
             $tableOptions
         );
@@ -51,39 +46,29 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
             [
                 'confirmation',
                 'delete',
-                'emailFrom',
                 'generatingPassword',
                 'messageHeader',
                 'passwordRecovery',
                 'register',
-                'subjectConfirm',
-                'subjectPassword',
-                'subjectReconfirmation',
-                'subjectRecovery',
-                'subjectWelcome',
                 'tokenConfirmWithin',
                 'tokenRecoverWithin',
                 'userNameCaseSensitive',
-                'userNameRegExp'
+                'userNameRegExp',
+                'emailChangeStrategy'
             ],
             [
                 [
                     false,
                     false,
-                    'support@example.com',
                     false,
                     'System Notification - Yii Demo User Module AR',
                     true,
                     true,
-                    'Confirm account',
-                    'Your password has been changed',
-                    'Confirm email change',
-                    'Complete password reset',
-                    'Welcome',
                     86400,
                     86400,
                     true,
-                    '/^[-a-zA-Z0-9_\.@]+$/'
+                    '/^[-a-zA-Z0-9_\.@]+$/',
+                    1,
                 ]
             ]
         );

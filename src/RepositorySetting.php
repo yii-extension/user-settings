@@ -16,7 +16,6 @@ final class RepositorySetting
 {
     private ActiveRecordFactory $activeRecordFactory;
     private Setting $settings;
-    private ActiveQueryInterface $querySettings;
 
     /**
      * RepositorySetting constructor.
@@ -28,38 +27,17 @@ final class RepositorySetting
     public function __construct(ActiveRecordFactory $activeRecordFactory)
     {
         $this->activeRecordFactory = $activeRecordFactory;
-        $this->createQuerySettings();
         $this->loadSettings();
     }
 
-    public function getEmailFrom(): string
+    public function getEmailChangeStrategy(): int
     {
-        return $this->settings->emailFrom;
+        return $this->settings->emailChangeStrategy;
     }
 
     public function getMessageHeader(): string
     {
         return $this->settings->messageHeader;
-    }
-
-    public function getSubjectConfirm(): string
-    {
-        return $this->settings->subjectConfirm;
-    }
-
-    public function getSubjectPassword(): string
-    {
-        return $this->settings->subjectPassword;
-    }
-
-    public function getSubjectRecovery(): string
-    {
-        return $this->settings->subjectRecovery;
-    }
-
-    public function getSubjectWelcome(): string
-    {
-        return $this->settings->subjectWelcome;
     }
 
     public function getTokenConfirmWithin(): int
@@ -115,13 +93,11 @@ final class RepositorySetting
     private function loadSettings(): ?ActiveRecordInterface
     {
         /** @psalm-suppress PropertyTypeCoercion */
-        return $this->settings = $this->querySettings->findOne(1);
+        return $this->settings = $this->createQuerySettings()->findOne(1);
     }
 
     private function createQuerySettings(): ActiveQueryInterface
     {
-        $this->querySettings = $this->activeRecordFactory->createQueryTo(Setting::class);
-
-        return $this->querySettings;
+        return $this->activeRecordFactory->createQueryTo(Setting::class);
     }
 }

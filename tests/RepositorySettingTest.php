@@ -8,13 +8,13 @@ use Yii\Extension\User\Settings\RepositorySetting;
 
 final class RepositorySettingTest extends TestCase
 {
-    public function testGetEmailFrom(): void
+    public function testGetEmailChangeStrategy(): void
     {
         $repositorySetting = $this->container->get(RepositorySetting::class);
 
         $this->assertEquals(
-            'support@example.com',
-            $repositorySetting->getEmailFrom()
+            1,
+            $repositorySetting->getEmailChangeStrategy(),
         );
     }
 
@@ -25,46 +25,6 @@ final class RepositorySettingTest extends TestCase
         $this->assertEquals(
             'System Notification - Yii Demo User Module AR',
             $repositorySetting->getMessageheader()
-        );
-    }
-
-    public function testGetSubjectConfirm(): void
-    {
-        $repositorySetting = $this->container->get(RepositorySetting::class);
-
-        $this->assertEquals(
-            'Confirm account',
-            $repositorySetting->getSubjectConfirm()
-        );
-    }
-
-    public function testGetSubjectPassword(): void
-    {
-        $repositorySetting = $this->container->get(RepositorySetting::class);
-
-        $this->assertEquals(
-            'Your password has been changed',
-            $repositorySetting->getSubjectPassword()
-        );
-    }
-
-    public function testGetSubjectRecovery(): void
-    {
-        $repositorySetting = $this->container->get(RepositorySetting::class);
-
-        $this->assertEquals(
-            'Complete password reset',
-            $repositorySetting->getSubjectRecovery()
-        );
-    }
-
-    public function testGetSubjectWelcome(): void
-    {
-        $repositorySetting = $this->container->get(RepositorySetting::class);
-
-        $this->assertEquals(
-            'Welcome',
-            $repositorySetting->getSubjectWelcome()
         );
     }
 
