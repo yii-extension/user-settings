@@ -4,44 +4,44 @@ declare(strict_types=1);
 
 namespace Yii\Extension\User\Settings\Migration;
 
-use Yiisoft\Yii\Db\Migration\Migration;
+use Yiisoft\Yii\Db\Migration\MigrationBuilder;
 use Yiisoft\Yii\Db\Migration\RevertibleMigrationInterface;
 
 /**
  * Class M201014141725CreateSettings
  */
-final class M201014141725CreateSettings extends Migration implements RevertibleMigrationInterface
+final class M201014141725CreateSettings implements RevertibleMigrationInterface
 {
-    public function up(): void
+    public function up(MigrationBuilder $b): void
     {
         $tableOptions = null;
 
-        if ($this->db->getDriverName() === 'mysql') {
+        if ($b->getDb()->getDriverName() === 'mysql') {
             $tableOptions = 'CHARACTER SET utf8mb4 COLLATE utf8mb4_bin ENGINE=InnoDB';
         }
 
-        $this->createTable(
+        $b->createTable(
             '{{%settings}}',
             [
-                'id' => $this->primaryKey(),
-                'confirmation' => $this->boolean(),
-                'delete' => $this->boolean(),
-                'generatingPassword' => $this->boolean(),
-                'messageHeader' => $this->string(100),
-                'passwordRecovery' => $this->boolean(),
-                'register' => $this->boolean(),
-                'tokenConfirmWithin' => $this->integer(),
-                'tokenRecoverWithin' => $this->integer(),
-                'userNameCaseSensitive' => $this->boolean(),
-                'userNameRegExp' => $this->string(25),
-                'emailChangeStrategy' => $this->integer(),
+                'id' => $b->primaryKey(),
+                'confirmation' => $b->boolean(),
+                'delete' => $b->boolean(),
+                'generatingPassword' => $b->boolean(),
+                'messageHeader' => $b->string(100),
+                'passwordRecovery' => $b->boolean(),
+                'register' => $b->boolean(),
+                'tokenConfirmWithin' => $b->integer(),
+                'tokenRecoverWithin' => $b->integer(),
+                'userNameCaseSensitive' => $b->boolean(),
+                'userNameRegExp' => $b->string(25),
+                'emailChangeStrategy' => $b->integer(),
             ],
             $tableOptions
         );
 
-        $this->createIndex('id', '{{%settings}}', ['id'], true);
+        $b->createIndex('id', '{{%settings}}', ['id'], true);
 
-        $this->batchInsert(
+        $b->batchInsert(
             '{{%settings}}',
             [
                 'confirmation',
@@ -74,8 +74,8 @@ final class M201014141725CreateSettings extends Migration implements RevertibleM
         );
     }
 
-    public function down(): void
+    public function down(MigrationBuilder $b): void
     {
-        $this->dropTable('{{%settings}}');
+        $b->dropTable('{{%settings}}');
     }
 }
