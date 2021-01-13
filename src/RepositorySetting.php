@@ -35,11 +35,6 @@ final class RepositorySetting
         return $this->settings->emailChangeStrategy;
     }
 
-    public function getMessageHeader(): string
-    {
-        return $this->settings->messageHeader;
-    }
-
     public function getTokenConfirmWithin(): int
     {
         return $this->settings->tokenConfirmWithin;

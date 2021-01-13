@@ -18,16 +18,6 @@ final class RepositorySettingTest extends TestCase
         );
     }
 
-    public function testGetMessageHeader(): void
-    {
-        $repositorySetting = $this->container->get(RepositorySetting::class);
-
-        $this->assertEquals(
-            'System Notification',
-            $repositorySetting->getMessageheader()
-        );
-    }
-
     public function testGetTokenConfirmWithin(): void
     {
         $repositorySetting = $this->container->get(RepositorySetting::class);
