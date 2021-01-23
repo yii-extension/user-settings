@@ -27,7 +27,6 @@ final class MigrationSettingTest extends TestCase
         $migration = $this->container->get(MigrationService::class);
 
         $consoleHelper->output()->setVerbosity(OutputInterface::VERBOSITY_QUIET);
-        $migration->compact(true);
 
         $application = $this->container->get(Application::class);
 
@@ -51,7 +50,6 @@ final class MigrationSettingTest extends TestCase
         $migration = $this->container->get(MigrationService::class);
 
         $consoleHelper->output()->setVerbosity(OutputInterface::VERBOSITY_QUIET);
-        $migration->compact(true);
 
         $application = $this->container->get(Application::class);
 
@@ -75,8 +73,6 @@ final class MigrationSettingTest extends TestCase
         $migration = $this->container->get(MigrationService::class);
 
         $consoleHelper->output()->setVerbosity(OutputInterface::VERBOSITY_QUIET);
-        $migration->compact(true);
-
 
         $application = $this->container->get(Application::class);
 
