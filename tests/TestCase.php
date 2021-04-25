@@ -15,7 +15,7 @@ use Yiisoft\Cache\CacheInterface;
 use Yiisoft\Db\Connection\ConnectionInterface;
 use Yiisoft\Db\Sqlite\Connection;
 use Yiisoft\Di\Container;
-use Yiisoft\Factory\Definitions\Reference;
+use Yiisoft\Factory\Definition\Reference;
 use Yiisoft\Profiler\Profiler;
 use Yiisoft\Profiler\ProfilerInterface;
 use Yiisoft\Yii\Db\Migration\Command\CreateCommand;
@@ -59,11 +59,15 @@ class TestCase extends AbstractTestCase
 
         return [
             Aliases::class => [
-                '@yiisoft/yii/db/migration' => dirname(__DIR__) . '/vendor/yiisoft/yii-db-migration',
+                '__construct()' => [                 
+                    [
+                        '@yiisoft/yii/db/migration' => dirname(__DIR__) . '/vendor/yiisoft/yii-db-migration',
+                    ],
+                ],
             ],
 
             CacheInterface::class => [
-                '__class' => Cache::class,
+                'class' => Cache::class,
                 '__construct()' => [
                     Reference::to(ArrayCache::class),
                 ],
@@ -74,15 +78,15 @@ class TestCase extends AbstractTestCase
             ProfilerInterface::class => Profiler::class,
 
             ConnectionInterface::class => [
-                '__class' => Connection::class,
+                'class' => Connection::class,
                 '__construct()' => [
                     'dsn' => $params['yiisoft/db-sqlite']['dsn'],
                 ],
             ],
 
             MigrationService::class => [
-                '__class' => MigrationService::class,
-                'updateNamespace()' => [['Yii\Extension\User\Settings\Migration']],
+                'class' => MigrationService::class,
+                'updateNamespaces()' => [['Yii\Extension\User\Settings\Migration']],
             ],
 
             MigrationInformerInterface::class => NullMigrationInformer::class,
@@ -92,12 +96,6 @@ class TestCase extends AbstractTestCase
     protected function params(): array
     {
         return [
-            'yiisoft/aliases' => [
-                'aliases' => [
-                    '@yiisoft/yii/db/migration' => dirname(__DIR__, 1),
-                ],
-            ],
-
             'yiisoft/db-sqlite' => [
                 'dsn' => 'sqlite:' . __DIR__ . '/config/yiitest.sq3'
             ],

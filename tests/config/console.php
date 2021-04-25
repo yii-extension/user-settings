@@ -11,7 +11,7 @@ return [
     LoggerInterface::class => NullLogger::class,
 
     ConnectionInterface::class => [
-        '__class' => Connection::class,
+        'class' => Connection::class,
         '__construct()' => [
             'dsn' => 'sqlite:' . __DIR__ . '/yiitest.sq3',
         ],
