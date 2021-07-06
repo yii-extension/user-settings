@@ -2,9 +2,6 @@
     "source": {
         "directories": [
             "src"
-        ],
-        "excludes": [
-            "Migration/M201014141725CreateSettings.php"
         ]
     },
     "logs": {

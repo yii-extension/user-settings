@@ -16,7 +16,7 @@ jobs:
           - ubuntu-latest
 
         php:
-          - "7.4"
+          - 8.0
 
     steps:
       - name: Checkout
@@ -33,7 +33,7 @@ jobs:
         run: echo "COMPOSER_CACHE_DIR=$(composer config cache-dir)" >> $GITHUB_ENV
 
       - name: Cache dependencies installed with composer
-        uses: actions/cache@v2
+        uses: actions/cache@v2.1.6
         with:
           path: ${{ env.COMPOSER_CACHE_DIR }}
           key: php${{ matrix.php }}-composer-${{ hashFiles('**/composer.json') }}
